@@ -13,9 +13,9 @@ class Genre < ActiveRecord::Base
   end
 
   def all_artist_names
-    artist_names = []
-    names = self.artists.name 
-    artist_names << names
+    self.artists.collect do |t|
+      t.name 
+    end
     # return an array of strings containing every musician's name
   end
 end
